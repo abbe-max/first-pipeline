@@ -1,6 +1,7 @@
 # First Pipeline Challenge
 
-[![CI/CD Pipeline](https://github.com/Fchas/Lillteamet-first-pipeline/actions/workflows/pipeline.yml/badge.svg)](https://github.com/Fchas/Lillteamet-first-pipeline/actions/workflows/pipeline.yml)
+[![CI/CD Pipeline](https://github.com/abbe-max/first-pipeline/actions/workflows/pipeline.yml/badge.svg)](https://github.com/abbe-max/first-pipeline/actions/workflows/pipeline.yml)
+
 
 Live deployment: https://lillteamet-first-pipeline.onrender.com/
 
