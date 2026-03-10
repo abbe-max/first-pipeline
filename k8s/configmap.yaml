@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: first-pipeline-config
-  namespace: first-pipeline
+  namespace: lillteamet
 data:
   PORT: "3000"
   NODE_ENV: "production"

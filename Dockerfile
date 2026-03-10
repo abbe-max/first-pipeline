@@ -1,4 +1,4 @@
-FROM node:20-alpine
+FROM node:20-alpine AS builder
 
 WORKDIR /app
 
@@ -7,8 +7,14 @@ RUN npm ci --only=production
 
 COPY . .
 
-# Create non-root user for security
+FROM node:20-alpine3.22 
+
+WORKDIR /app
+
 RUN addgroup -g 1001 -S nodejs && adduser -S nodejs -u 1001
+
+COPY --from=builder /app /app
+
 USER nodejs
 
 EXPOSE 3000

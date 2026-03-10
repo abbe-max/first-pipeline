@@ -2,7 +2,7 @@ apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: first-pipeline-hpa
-  namespace: first-pipeline
+  namespace: lillteamet
 spec:
   scaleTargetRef:
     apiVersion: apps/v1

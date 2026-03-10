@@ -2,12 +2,12 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: first-pipeline
-  namespace: first-pipeline
+  namespace: lillteamet
   labels:
     app: first-pipeline
     version: v1
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: first-pipeline
@@ -22,7 +22,8 @@ spec:
         runAsNonRoot: true
         runAsUser: 1001
         fsGroup: 1001
-      
+        seccompProfile:
+          type: RuntimeDefault
       containers:
       - name: first-pipeline
         image: ghcr.io/fchas/lillteamet-first-pipeline:latest
@@ -31,7 +32,7 @@ spec:
         # Container security context
         securityContext:
           allowPrivilegeEscalation: false
-          readOnlyRootFilesystem: false
+          readOnlyRootFilesystem: true
           capabilities:
             drop:
               - ALL
@@ -72,7 +73,7 @@ spec:
         # Resource limits and requests
         resources:
           requests:
-            memory: "64Mi"
+            memory: "128Mi"
             cpu: "100m"
           limits:
             memory: "256Mi"
@@ -82,12 +83,8 @@ spec:
         volumeMounts:
         - name: tmp
           mountPath: /tmp
-        - name: app
-          mountPath: /app
       
       # Volumes
       volumes:
       - name: tmp
-        emptyDir: {}
-      - name: app
         emptyDir: {}

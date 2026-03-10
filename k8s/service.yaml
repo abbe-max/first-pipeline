@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: first-pipeline
-  namespace: first-pipeline
+  namespace: lillteamet
   labels:
     app: first-pipeline
 spec:
@@ -19,7 +19,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: first-pipeline-nodeport
-  namespace: first-pipeline
+  namespace: lillteamet
   labels:
     app: first-pipeline
 spec:
